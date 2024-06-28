@@ -3,6 +3,8 @@
 ## Funkcjonalności do zakodowani:
 * Logowanie i autoryzacja pracowników:
   - System logowania z różnymi poziomami dostępu, aby zarządzać uprawnieniami poszczególnych pracowników.
+    - poziomy będą dodawane pożnij jako scopy
+    - już jest rozwiązanie, należy się połączyć i pobrać dane, logalhost:8081
 
 * Zarządzanie rezerwacjami:
   - Możliwość dodawania, edytowania i usuwania rezerwacji dla zwierząt, a także przypisywania konkretnych zwierząt do pokoi lub klatek.
