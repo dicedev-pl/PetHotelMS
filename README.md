@@ -3,9 +3,13 @@
 ## Funkcjonalności do zakodowani:
 * Logowanie i autoryzacja pracowników:
   - System logowania z różnymi poziomami dostępu, aby zarządzać uprawnieniami poszczególnych pracowników.
-    - poziomy będą dodawane pożnij jako scopy
+    - poziomy będą dodawane jako scopy
     - już jest rozwiązanie, należy się połączyć i pobrać dane, logalhost:8081
-
+    - (w1)użytkownik może utworzyć konto w aplikacji po kliknięciu "specjalnego" linka
+      - będzie przesyłane login i hasło - ZABEZPIECZYĆ
+    - (w2) dodanie bazy danych i scopów - uprawnień - użytkownikowi
+      - stworzenie repozytorium - mongoDB - Docker
+      - dodanie encji + prosty mapper dto <-> encja
 * Zarządzanie rezerwacjami:
   - Możliwość dodawania, edytowania i usuwania rezerwacji dla zwierząt, a także przypisywania konkretnych zwierząt do pokoi lub klatek.
 
