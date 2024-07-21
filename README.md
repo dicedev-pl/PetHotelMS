@@ -33,3 +33,9 @@
 
 * Rejestr usług dodatkowych:
   - Możliwość rejestrowania i śledzenia dodatkowych usług świadczonych dla zwierząt, takich jak kąpiele, strzyżenie czy spacery, wraz z możliwością przypisywania ich do konkretnych zwierząt.
+
+
+## Zależności
+[SimpleAuthenticationService](https://github.com/dicedev-pl/SimplyAuthorizationMicroservice) 
+Serwis jest wykorzystywany do sprawdzenia użytkowników, jego rozwój opisuje punkt:
+[Logowanie i autoryzacja pracowników](https://github.com/dicedev-pl/PetHotelMS/blob/master/README.md#L4)
