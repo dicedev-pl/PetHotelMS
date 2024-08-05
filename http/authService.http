@@ -1,11 +1,9 @@
-### GET token
-GET http://localhost:8081/v1/authentication/test:test
+###
+POST localhost:8081/v2/token/valid?right=ADD_RESERVATIONS
+Content-Type: application/json
+Token: ust:name-nickname-au-ru-login-ar-rr+xst:position-nn-create-delete-company-customer-cut+name:Root+rights:[USER, TRAINEE, ADD_USERS, REMOVE_USERS, ORDER_FOOD, ADD_RESERVATIONS, REMOVE_RESERVATIONS]
 
-### GET token local
-GET http://localhost:8080/vi/auth/test:test
-
-### GET check token
-GET http://localhost:8081/v1/authentication/scope/dXNlck5hbWU9dGVzdDt2YWxpZFRpbWU9MjAyNC0wNi0yOFQxNjoxODowNi4wMTUwODgxMTZaO3Njb3BlPXVzZXItdGVzdC1zY29wZTtpZD01MzM0NjkxNi01NGQ0LTRjZTgtYTUzOS1iNjgxM2E0N2Y2ZjU
-
-### POST check token
-POST http://localhost:8080/vi/auth/dXNlck5hbWU9dGVzdDt2YWxpZFRpbWU9MjAyNC0wNi0yOFQxNjozNDo0NC4xMzM5MjIwNDhaO3Njb3BlPXVzZXItdGVzdC1zY29wZTtpZD01MzM0NjkxNi01NGQ0LTRjZTgtYTUzOS1iNjgxM2E0N2Y2ZjU
+###
+POST localhost:8082/vi/auth
+Content-Type: application/json
+Token: ust:name-nickname-au-ru-login-ar-rr+xst:position-nn-create-delete-company-customer-cut+name:Root+rights:[USER, TRAINEE, ADD_USERS, REMOVE_USERS, ORDER_FOOD, ADD_RESERVATIONS, REMOVE_RESERVATIONS]
