@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Frontend -> SAMs: send user name and password
+SAMs -> Frontend: send token
+Frontend -> Frontend: save token in cookies
+Frontend -> PHMs: send token + body
+PHMs -> SAMs: token is valid?
+SAMs -> PHMs: Yes
+PHMs -> DB: save data (or get)
+
+@enduml
+
+@startuml
+
+enum Rights {
+    USER,
+    TRAINEE,
+    ADD_USERS,
+    REMOVE_USERS,
+    ORDER_FOOD,
+    ADD_RESERVATIONS,
+    REMOVE_RESERVATIONS,
+}
+
+@enduml
