@@ -1,5 +1,6 @@
 package pl.dicedev.pethotel.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
@@ -8,26 +9,27 @@ import pl.dicedev.pethotel.config.AuthConfigService;
 
 
 @Service
-public class AddReservationService {
+@AllArgsConstructor
+public class AuthTokenCheckService {
 
-    private final String URI = "/v2/token/valid";
     private final AuthConfigService authConfigService;
     private final RestTemplate restTemplate;
 
-    public AddReservationService(AuthConfigService authConfigService, RestTemplate restTemplate) {
-        this.authConfigService = authConfigService;
-        this.restTemplate = restTemplate;
+    public Boolean hasTokenWithAddReservationsRights(String token) {
+        String RIGHT = "ADD_RESERVATIONS";
+        return checkRightForToken(token, RIGHT);
     }
 
-    public String getScopeFromToken(String token, String right) {
-        String url = "http://" + getAuthServiceName() + ":8081" + URI + "?right=" + right;
+    private Boolean checkRightForToken(String token, String right) {
+        String URI = "/v2/token/valid";
+        String checkRightUrl = "http://" + getAuthServiceName() + ":8081" + URI + "?right=" + right;
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("token", token);
 
         HttpEntity<String> httpEntity = new HttpEntity<>(null, httpHeaders);
 
-        return restTemplate.postForObject(url, httpEntity, String.class);
+        return restTemplate.postForObject(checkRightUrl, httpEntity, Boolean.class);
     }
 
     private String getAuthServiceName() {

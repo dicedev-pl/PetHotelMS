@@ -1,23 +1,25 @@
 package pl.dicedev.pethotel.controllers;
 
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.dicedev.pethotel.services.AddReservationService;
+import pl.dicedev.pethotel.controllers.dot.ReservationDto;
+import pl.dicedev.pethotel.services.ReservationService;
+
+import java.util.UUID;
 
 @RestController
-@RequestMapping("vi/auth")
+@AllArgsConstructor
+@RequestMapping("vi/reservations")
 class AddReservationController {
 
-    private final AddReservationService addReservationService;
-
-    public AddReservationController(AddReservationService addReservationService) {
-        this.addReservationService = addReservationService;
-    }
+    private final ReservationService reservationService;
 
     @PostMapping
-    public String getAuthenticationToken(
+    public UUID saveReservation(
+            @RequestBody ReservationDto reservationDto,
             @RequestHeader("token") String token
     ) {
-        return addReservationService.getScopeFromToken(token, "ADD_RESERVATIONS");
+        return reservationService.saveReservation(reservationDto, token);
     }
 
 }
