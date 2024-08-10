@@ -5,13 +5,19 @@
   - System logowania z różnymi poziomami dostępu, aby zarządzać uprawnieniami poszczególnych pracowników.
     - poziomy będą dodawane jako scopy
     - już jest rozwiązanie, należy się połączyć i pobrać dane, logalhost:8081
-    - (w1)użytkownik może utworzyć konto w aplikacji po kliknięciu "specjalnego" linka
+    - użytkownik może utworzyć konto w aplikacji po kliknięciu "specjalnego" linka
       - będzie przesyłane login i hasło - ZABEZPIECZYĆ
-    - (w2) dodanie bazy danych i scopów - uprawnień - użytkownikowi
+    - dodanie bazy danych użytkownika z przypisanymi scopów - uprawnień
       - stworzenie repozytorium - mongoDB - Docker
       - dodanie encji + prosty mapper dto <-> encja
+    - przygotowanie tokena z odpowiednimi uprawnieniami
+      - proste zabezpieczenie przed niewłaściwym wykorzystaniem tokena
+    - dodanie domyślnego użytkownika 
 * Zarządzanie rezerwacjami:
   - Możliwość dodawania, edytowania i usuwania rezerwacji dla zwierząt, a także przypisywania konkretnych zwierząt do pokoi lub klatek.
+    - etap pierwszy - zapis rezerwacji do bazy danych
+      - rezerwacji dokonuje pracownik z odpowiednimi uprawnieniami - scopy zapisane w tokenie
+      - dodanie systemu kontroli wersji bazy danych - liquidbase
 
 * Harmonogram pracy pracowników:
   - Narzędzie do planowania i monitorowania grafiku pracy personelu, aby zapewnić odpowiednią liczbę pracowników w hotelu o różnych porach.
