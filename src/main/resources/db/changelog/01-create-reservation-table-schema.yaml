@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01-create-reservation-table-schema
+      author: dicedev
+      changes:
+        - createTable:
+            tableName: reservation
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: customer_name
+                  type: text
+              - column:
+                  name: start_date
+                  type: timestamp
+              - column:
+                  name: end_date
+                  type: timestamp
+              - column:
+                  name: pet_type
+                  type: text
