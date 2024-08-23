@@ -18,5 +18,6 @@ public class ReservationDto {
     private Instant startDate;
     private Instant endDate;
     private Pet petType;
+    private String roomType;
 
 }

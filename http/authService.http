@@ -14,3 +14,6 @@ Token: ust:name-nickname-au-ru-login-ar-rr+xst:position-nn-create-delete-company
   "endDate": "2022-02-10T15:23:44Z",
   "petType": "CAT"
 }
+
+###
+GET localhost:8082/vi/rooms
