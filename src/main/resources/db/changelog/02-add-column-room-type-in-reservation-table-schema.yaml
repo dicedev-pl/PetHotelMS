@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-add-column-room-type-in-reservation-table-schema
+      author: dicedev
+      changes:
+      -  addColumn:
+           tableName: reservation
+           columns:
+             - column:
+                name: room_type
+                type: text

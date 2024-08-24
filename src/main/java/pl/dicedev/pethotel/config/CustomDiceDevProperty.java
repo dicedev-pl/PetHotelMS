@@ -7,8 +7,9 @@ import java.util.Set;
 
 @Data
 @ConfigurationProperties(prefix = "dicedev")
-public class RoomsTypeProperty {
+public class CustomDiceDevProperty {
 
-    private Set<String> rooms;
+    private Set<String> roomsType;
+    private Set<String> guestType;
 
 }
