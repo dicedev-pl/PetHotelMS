@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import pl.dicedev.pethotel.config.RoomsTypeProperty;
+import pl.dicedev.pethotel.config.CustomDiceDevProperty;
 
 @SpringBootApplication
-@EnableConfigurationProperties(RoomsTypeProperty.class)
+@EnableConfigurationProperties(CustomDiceDevProperty.class)
 @Configuration
 public class PethotelApplication {
 

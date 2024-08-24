@@ -21,7 +21,7 @@ public class ReservationService {
         }
         ReservationEntity entity = new ReservationEntity();
         entity.setCustomerName(dto.getCustomerName());
-        entity.setPetType(dto.getPetType());
+        entity.setGuestType(dto.getGuestType());
         entity.setStartDate(dto.getStartDate());
         entity.setEndDate(dto.getEndDate());
 

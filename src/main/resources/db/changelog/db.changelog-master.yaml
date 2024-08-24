@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
       file: db/changelog/01-create-reservation-table-schema.yaml
+  - include:
+      file: db/changelog/02-add-column-room-type-in-reservation-table-schema.yaml
+  - include:
+      file: db/changelog/03-rename-column-pet-type-in-reservation-table-schema.yaml

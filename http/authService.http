@@ -12,7 +12,7 @@ Token: ust:name-nickname-au-ru-login-ar-rr+xst:position-nn-create-delete-company
   "customerName" : "Customer",
   "startDate": "2022-01-10T15:23:44Z",
   "endDate": "2022-02-10T15:23:44Z",
-  "petType": "CAT"
+  "guestType": "CAT"
 }
 
 ###

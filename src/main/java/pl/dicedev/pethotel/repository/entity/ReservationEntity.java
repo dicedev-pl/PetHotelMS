@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.dicedev.pethotel.enums.Pet;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -24,8 +23,9 @@ public class ReservationEntity {
     private Instant startDate;
     @Column(name = "end_date")
     private Instant endDate;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "pet_type")
-    private Pet petType;
+    @Column(name = "guest_type")
+    private String guestType;
+    @Column(name = "room_type")
+    private String roomType;
 
 }

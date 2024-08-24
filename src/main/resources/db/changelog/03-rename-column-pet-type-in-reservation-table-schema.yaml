@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 03-rename-column-pet-type-in-reservation-table-schema
+      author: dicedev
+      changes:
+      -  renameColumn:
+           columnDataType: text
+           newColumnName: guest_type
+           oldColumnName: pet_type
+           tableName: reservation
