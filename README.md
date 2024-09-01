@@ -29,7 +29,12 @@
   - Funkcjonalność do notowania codziennych obserwacji dotyczących zwierząt, takich jak jedzenie, zachowanie, zdrowie oraz ewentualne problemy.
 
 * Zarządzanie zapasami:
-  - Monitorowanie stanu zapasów jedzenia, zabawek, środków higienicznych i innych artykułów. Automatyczne powiadomienia o niskim stanie zapasów.
+  - Monitorowanie stanu zapasów:
+    - jedzenia
+    - zabawek
+    - środków higienicznych
+    - innych artykułów.
+  Automatyczne powiadomienia o niskim stanie zapasów.
 
 * Alarmy i przypomnienia:
   - Automatyczne przypomnienia dla pracowników o ważnych zadaniach, takich jak podawanie leków, karmienie czy zabiegi pielęgnacyjne.
