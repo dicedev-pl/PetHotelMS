@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-toys
+      author: dicedev
+      changes:
+        - createTable:
+            tableName: toys
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: toy_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: toy_type
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cleaning
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: brand
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity_in_stock
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: wear_out
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: caretaker_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: supplier_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: toys
+            baseColumnNames: id
+            referencedTableName: supplier
+            referencedColumnNames: id
+            constraintName: fk_toys_supplier

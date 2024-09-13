@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.dicedev.pethotel.controllers.dot.AnimalFoodDto;
+import pl.dicedev.pethotel.controllers.dot.SupplierDto;
 import pl.dicedev.pethotel.services.SupplierService;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class SupplierController {
     private final SupplierService service;
 
     @GetMapping
-    public List<AnimalFoodDto> getAnimalSuupplierDtoList() {
+    public List<SupplierDto> getAnimalSupplierDtoList() {
         return service.getAllSupplier();
     }
 
