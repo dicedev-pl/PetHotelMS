@@ -1,6 +1,6 @@
 package pl.dicedev.pethotel.services;
 
-import com.example.petshotel.repository.SupplierRepository;
+import pl.dicedev.pethotel.repository.SupplierRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dicedev.pethotel.controllers.dot.SupplierDto;

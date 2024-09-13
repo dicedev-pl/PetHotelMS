@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/03-rename-column-pet-type-in-reservation-table-schema.yaml
   - include:
       file: db/changelog/04-add-supplier-and-animal-food.yaml
+  - include:
+      file: db/changelog/05-add-toys.yaml

@@ -2,30 +2,31 @@ package pl.dicedev.pethotel.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "animal_food")
+@Table(name = "toys")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class AnimalFoodEntity {
+public class ToysEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(insertable=false, updatable=false)
     private UUID id;
 
-    @Column(name = "food_name", nullable = false)
-    private String foodName;
+    @Column(name = "toy_name", nullable = false)
+    private String toyName;
 
-    @Column(name = "animal_type", nullable = false)
-    private String animalType;
+    @Column(name = "toy_type", nullable = false)
+    private String toyType;
+
+    @Column(name = "cleaning", nullable = false)
+    private String cleaning;
 
     @Column(name = "brand", nullable = false)
     private String brand;
@@ -35,6 +36,9 @@ public class AnimalFoodEntity {
 
     @Column(name = "caretaker_id", nullable = false)
     private UUID caretakerID;
+
+    @Column(name = "wear_out", nullable = false)
+    private UUID wearOut;
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)

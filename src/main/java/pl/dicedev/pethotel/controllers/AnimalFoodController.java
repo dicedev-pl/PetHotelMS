@@ -1,13 +1,12 @@
 package pl.dicedev.pethotel.controllers;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.dicedev.pethotel.controllers.dot.AnimalFoodDto;
 import pl.dicedev.pethotel.services.AnimalFoodService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/vi/food")
@@ -19,6 +18,11 @@ public class AnimalFoodController {
     @GetMapping
     public List<AnimalFoodDto> getAnimalFoodDtoList() {
         return service.getAllAnimalFood();
+    }
+
+    @PostMapping
+    public UUID saveAnimalFoodDto(@RequestBody AnimalFoodDto dto) {
+        return service.saveAnimalFood(dto);
     }
 
 }
