@@ -16,4 +16,4 @@ Token: ust:name-nickname-au-ru-login-ar-rr+xst:position-nn-create-delete-company
 }
 
 ###
-GET localhost:8082/vi/rooms
+GET localhost:8082/vi/food

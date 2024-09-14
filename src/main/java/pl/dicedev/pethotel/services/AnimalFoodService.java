@@ -3,6 +3,7 @@ package pl.dicedev.pethotel.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dicedev.pethotel.controllers.dot.AnimalFoodDto;
+import pl.dicedev.pethotel.exceptions.AnimalFoodException;
 import pl.dicedev.pethotel.repository.AnimalFoodRepository;
 import pl.dicedev.pethotel.repository.SupplierRepository;
 import pl.dicedev.pethotel.repository.entity.AnimalFoodEntity;
@@ -20,6 +21,14 @@ public class AnimalFoodService {
     private final SupplierRepository supplierRepository;
 
     public List<AnimalFoodDto> getAllAnimalFood() {
+        if (userCanOrderFood()) {
+            throw new AnimalFoodException(
+                    "User do not have permission to order food",
+                    "User do not have permission to order food",
+                    UUID.fromString("850f4ee9-3268-4573-877a-6bd15da91e0b")
+            );
+        }
+
         return animalFoodRepository.findAll().stream()
                 .map(it -> AnimalFoodDto.builder()
                         .id(it.getId())
@@ -50,5 +59,12 @@ public class AnimalFoodService {
         AnimalFoodEntity savedEntity = animalFoodRepository.save(entity);
 
         return savedEntity.getId();
+    }
+
+    private boolean userCanOrderFood() {
+        /*
+        authService.userCanOrderFood(token);
+         */
+        return true;
     }
 }
