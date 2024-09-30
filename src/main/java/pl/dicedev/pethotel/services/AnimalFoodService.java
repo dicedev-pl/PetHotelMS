@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.dicedev.pethotel.controllers.dot.AnimalFoodDto;
 import pl.dicedev.pethotel.exceptions.AnimalFoodException;
+import pl.dicedev.pethotel.i18n.I18nUtil;
 import pl.dicedev.pethotel.repository.AnimalFoodRepository;
 import pl.dicedev.pethotel.repository.SupplierRepository;
 import pl.dicedev.pethotel.repository.entity.AnimalFoodEntity;
@@ -19,12 +20,14 @@ public class AnimalFoodService {
 
     private final AnimalFoodRepository animalFoodRepository;
     private final SupplierRepository supplierRepository;
+    private final I18nUtil i18n;
 
     public List<AnimalFoodDto> getAllAnimalFood() {
+        String messageForUser = i18n.getMessage("user.no.permission");
         if (userCanOrderFood()) {
             throw new AnimalFoodException(
                     "User do not have permission to order food",
-                    "User do not have permission to order food",
+                    messageForUser,
                     UUID.fromString("850f4ee9-3268-4573-877a-6bd15da91e0b")
             );
         }

@@ -7,8 +7,8 @@ import java.util.UUID;
 @Getter
 public class AnimalFoodException extends RuntimeException {
 
-    private UUID id;
-    private String userMessage;
+    private final UUID id;
+    private final String userMessage;
 
     public AnimalFoodException(String message, String userMessage, UUID id) {
         super(message);
