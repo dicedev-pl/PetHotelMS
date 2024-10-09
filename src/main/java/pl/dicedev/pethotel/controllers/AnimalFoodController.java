@@ -17,7 +17,7 @@ public class AnimalFoodController {
 
     @GetMapping
     public List<AnimalFoodDto> getAnimalFoodDtoList() {
-        return service.getAllAnimalFood();
+        return service.getAllAnimalFood("token");
     }
 
     @PostMapping
