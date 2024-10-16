@@ -1,6 +1,9 @@
 package pl.dicedev.pethotel.services;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.dicedev.pethotel.controllers.dot.ReservationDto;
 import pl.dicedev.pethotel.exceptions.ReservationException;
 import pl.dicedev.pethotel.repository.ReservationRepository;
@@ -11,7 +14,13 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class ReservationServiceTest {
+
+    @Mock
+    private AuthTokenCheckService authTokenCheckService;
+    @Mock
+    private ReservationRepository reservationRepository;
 
     @Test
     void shouldThrowExceptionWhenTokenIsInvalid() {
