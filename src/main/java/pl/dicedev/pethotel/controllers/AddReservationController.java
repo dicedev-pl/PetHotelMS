@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("vi/reservations")
+@RequestMapping("/vi/reservations")
 class AddReservationController {
 
     private final ReservationService reservationService;
