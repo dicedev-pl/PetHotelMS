@@ -1,8 +1,6 @@
 package pl.dicedev.pethotel.services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.dicedev.pethotel.controllers.dot.AnimalFoodDto;
 import pl.dicedev.pethotel.exceptions.AnimalFoodException;
@@ -13,7 +11,6 @@ import pl.dicedev.pethotel.repository.entity.AnimalFoodEntity;
 import pl.dicedev.pethotel.repository.entity.SupplierEntity;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -21,11 +18,13 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AnimalFoodService {
 
-    private final AnimalFoodServiceDependencies animalFoodServiceDependencies;
+    private final AnimalFoodRepository animalFoodRepository;
+    private final SupplierRepository supplierRepository;
+    private final I18nUtil i18n;
+    private final AuthTokenCheckService authTokenCheckServiceImpl;
 
     public List<AnimalFoodDto> getAllAnimalFood(String token) {
-        String messageForUser = animalFoodServiceDependencies
-                .getI18nMessage("user.no.permission");
+        String messageForUser = i18n.getMessage("user.no.permission");
         if (!userCanOrderFood(token)) {
             throw new AnimalFoodException(
                     "User do not have permission to order food",
@@ -34,7 +33,7 @@ public class AnimalFoodService {
             );
         }
 
-        return animalFoodServiceDependencies.getAllAnimalFood().stream()
+        return animalFoodRepository.findAll().stream()
                 .map(it -> AnimalFoodDto.builder()
                         .id(it.getId())
                         .brand(it.getBrand())
@@ -48,8 +47,9 @@ public class AnimalFoodService {
     }
 
     public UUID saveAnimalFood(AnimalFoodDto dto) {
-        SupplierEntity supplierEntity = animalFoodServiceDependencies
-                .getSupplierEntityById(dto.getId());
+        SupplierEntity supplierEntity = supplierRepository
+                .findById(dto.getId())
+                .get();
 
         AnimalFoodEntity entity = AnimalFoodEntity.builder()
                 .brand(dto.getBrand())
@@ -60,45 +60,12 @@ public class AnimalFoodService {
                 .supplier(supplierEntity)
                 .build();
 
-        AnimalFoodEntity savedEntity = animalFoodServiceDependencies.saveFoodEntity(entity);
+        AnimalFoodEntity savedEntity = animalFoodRepository.save(entity);
 
         return savedEntity.getId();
     }
 
     private boolean userCanOrderFood(String token) {
-        return animalFoodServiceDependencies.userCanOrderFood(token);
-    }
-}
-
-@Component
-class AnimalFoodServiceDependencies {
-    @Autowired
-    private AnimalFoodRepository animalFoodRepository;
-    @Autowired
-    private SupplierRepository supplierRepository;
-    @Autowired
-    private I18nUtil i18n;
-    @Autowired
-    private AuthTokenCheckService authTokenCheckServiceImpl;
-
-    List<AnimalFoodEntity> getAllAnimalFood() {
-        return animalFoodRepository.findAll();
-    }
-
-    public String getI18nMessage(String messageKey) {
-        return i18n.getMessage(messageKey);
-    }
-
-    public SupplierEntity getSupplierEntityById(UUID id) {
-        Optional<SupplierEntity> supplierEntity = supplierRepository.findById(id);
-        return supplierEntity.orElse(null);
-    }
-
-    public AnimalFoodEntity saveFoodEntity(AnimalFoodEntity entity) {
-        return animalFoodRepository.save(entity);
-    }
-
-    public boolean userCanOrderFood(String token) {
         return authTokenCheckServiceImpl.hasTokenWithAddReservationsRights(token);
     }
 }
